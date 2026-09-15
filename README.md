@@ -56,7 +56,7 @@ src/br/com/estacionamento/
 
 ## Funcionalidades
 
-- Cadastro de clientes
+- Cadastro de clientes,
 - Reserva de vagas
 - Registro de entrada e saída de veículos
 - Cálculo de tarifa conforme tipo de veículo e tempo de permanência
