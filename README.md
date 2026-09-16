@@ -34,7 +34,7 @@ O escopo não foi definido por um enunciado fechado: coube ao grupo escolher o d
 | **Controller** | `GestorReserva`, `GestorMovimentacao` e `ControleCadastroCliente` concentram a coordenação entre as ações do sistema e as regras de negócio. |
 | **Low Coupling / High Cohesion** | Dependência sempre via interface, nunca via classe concreta; cada classe mantém foco em uma única responsabilidade. |
 | **Polymorphism** | A escolha de qual meio de pagamento ou tabela de preço usar é resolvida por tipo (polimorfismo de interface), sem cadeias de `if/else`. |
-| **Pure Fabrication** | `RegistroReservaRepositorioSQL`, `RegistroMovimentacaoRepositorioSQL`, `FinanceiroRepositorioSQL` e `Calculo` não correspondem a nenhum conceito do domínio real — foram criadas para manter a arquitetura desacoplada. |
+| **Pure Fabrication** | `RegistroReservaRepositorioSQL`, `RegistroMovimentacaoRepositorioSQL`, `PagamentoRepositorioSQL` e `Calculo` não correspondem a nenhum conceito do domínio real — foram criadas para manter a arquitetura desacoplada. |
 | **Indirection** | `Pagamento` atua como intermediário entre `GestorMovimentacao` e as implementações concretas de `IMeioPagamento`. |
 | **Protected Variations** | As interfaces `IMeioPagamento`, `ITabelaPreco` e as de repositório blindam o restante do sistema contra mudanças internas em pagamento, tarifação e persistência. |
 
