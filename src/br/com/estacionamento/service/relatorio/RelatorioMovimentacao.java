@@ -11,7 +11,6 @@ public class RelatorioMovimentacao {
     public void gerar(LocalDateTime inicio, LocalDateTime fim) {
         this.periodoInicio = inicio;
         this.periodoFim = fim;
-        // TODO: consultar movimentações do período (via IRegistroMovimentacaoRepositorio) e calcular totalVeiculos
     }
 
     public LocalDateTime getPeriodoInicio() {

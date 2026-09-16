@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FinanceiroRepositorioSQL implements IPagamentoRepositorio {
+public class PagamentoRepositorioSQL implements IPagamentoRepositorio {
 
     @Override
     public List<Pagamento> buscarPorPeriodo(LocalDateTime inicio, LocalDateTime fim) {

@@ -6,7 +6,6 @@ public class PagamentoCartao implements IMeioPagamento {
 
     @Override
     public boolean processar(double valor) {
-        // TODO: integração com maquininha/gateway de cartão
         return true;
     }
 }

@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 public class Calculo implements ICalculoTarifa {
 
     @Override
-    public long calcularTempoPermanencia(LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida) {
+    public double calcularTempoPermanencia(LocalDateTime dataHoraEntrada, LocalDateTime dataHoraSaida) {
         return Duration.between(dataHoraEntrada, dataHoraSaida).toMinutes();
     }
 
-    @Override
-    public double calcularValor(Veiculo veiculo, ITabelaPreco tabelaPreco, long tempoPermanencia) {
-        return tabelaPreco.consultarValorBase((int) tempoPermanencia, veiculo.getTipo());
+
+    public double calcularValor( ITabelaPreco tabelaPreco, long tempoPermanencia) {
+        return tabelaPreco.consultarValorBase((int) tempoPermanencia);
     }
 }

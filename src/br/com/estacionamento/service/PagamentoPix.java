@@ -8,7 +8,6 @@ public class PagamentoPix implements IMeioPagamento {
 
     @Override
     public boolean processar(double valor) {
-        // TODO: integração com API Pix
         return true;
     }
 

@@ -8,12 +8,10 @@ public class PagamentoDinheiro implements IMeioPagamento {
 
     @Override
     public boolean processar(double valor) {
-        // TODO: implementar lógica de recebimento em dinheiro
         return true;
     }
 
     public double calcularTroco(double valor) {
-        // TODO: calcular troco com base no valor recebido
         return troco;
     }
 

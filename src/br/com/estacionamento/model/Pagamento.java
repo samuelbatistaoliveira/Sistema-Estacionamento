@@ -6,7 +6,6 @@ public class Pagamento {
 
     private int idPagamento;
     private double valor;
-    private IMeioPagamento meioPagamento;
     private TipoPagamento tipo;
 
     public boolean processar() {
@@ -27,14 +26,6 @@ public class Pagamento {
 
     public void setValor(double valor) {
         this.valor = valor;
-    }
-
-    public IMeioPagamento getMeioPagamento() {
-        return meioPagamento;
-    }
-
-    public void setMeioPagamento(IMeioPagamento meioPagamento) {
-        this.meioPagamento = meioPagamento;
     }
 
     public TipoPagamento getTipo() {
