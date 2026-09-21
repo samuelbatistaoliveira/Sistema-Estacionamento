@@ -1,12 +1,14 @@
 package br.com.estacionamento.model;
 
 import br.com.estacionamento.interfaces.IMeioPagamento;
+import br.com.estacionamento.model.TipoPagamento;
 
 public class Pagamento {
 
     private int idPagamento;
     private double valor;
-    private TipoPagamento tipo;
+    private br.com.estacionamento.model.TipoPagamento tipo;
+    private IMeioPagamento meioPagamento;
 
     public boolean processar() {
         return meioPagamento.processar(valor);
@@ -28,7 +30,11 @@ public class Pagamento {
         this.valor = valor;
     }
 
-    public TipoPagamento getTipo() {
+    public void setMeioPagamento(IMeioPagamento meioPagamento) {
+        this.meioPagamento = meioPagamento;
+    }
+
+    public br.com.estacionamento.model.TipoPagamento getTipo() {
         return tipo;
     }
 

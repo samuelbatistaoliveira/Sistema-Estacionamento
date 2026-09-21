@@ -1,5 +1,7 @@
 package br.com.estacionamento.model;
 
+import br.com.estacionamento.model.Veiculo;
+
 public class Moto extends Veiculo {
 
     private int cilindradas;

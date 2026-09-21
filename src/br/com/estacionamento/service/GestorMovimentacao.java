@@ -1,6 +1,5 @@
 package br.com.estacionamento.service;
 
-import br.com.estacionamento.model.Funcionario;
 import br.com.estacionamento.model.RegistroMovimentacao;
 import br.com.estacionamento.model.Veiculo;
 

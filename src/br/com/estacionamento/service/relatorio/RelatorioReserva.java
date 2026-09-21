@@ -11,7 +11,6 @@ public class RelatorioReserva {
     public void gerar(LocalDateTime periodoInicio, LocalDateTime periodoFim) {
         this.periodoInicio = periodoInicio;
         this.periodoFim = periodoFim;
-        // TODO: consultar reservas do período (via IRegistroReservaRepositorio) e calcular totalReserva
     }
 
     public LocalDateTime getPeriodoInicio() {

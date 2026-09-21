@@ -1,19 +1,23 @@
 package br.com.estacionamento.model;
 
+import br.com.estacionamento.model.Cliente;
+import br.com.estacionamento.model.StatusReserva;
+import br.com.estacionamento.model.Vaga;
+
 import java.time.LocalDateTime;
 
 public class Reserva {
 
     private int idReserva;
     private LocalDateTime dataReserva;
-    private StatusReserva situacaoReserva;
+    private br.com.estacionamento.model.StatusReserva situacaoReserva;
     private double valor;
-    private Cliente cliente;
-    private Vaga vaga;
+    private br.com.estacionamento.model.Cliente cliente;
+    private br.com.estacionamento.model.Vaga vaga;
     private LocalDateTime dataInicioReserva;
     private LocalDateTime dataFimReserva;
 
-    public StatusReserva consultarStatusReserva() {
+    public br.com.estacionamento.model.StatusReserva consultarStatusReserva() {
         return situacaoReserva;
     }
 
@@ -33,7 +37,7 @@ public class Reserva {
         this.dataReserva = dataReserva;
     }
 
-    public StatusReserva getSituacaoReserva() {
+    public br.com.estacionamento.model.StatusReserva getSituacaoReserva() {
         return situacaoReserva;
     }
 
@@ -49,7 +53,7 @@ public class Reserva {
         this.valor = valor;
     }
 
-    public Cliente getCliente() {
+    public br.com.estacionamento.model.Cliente getCliente() {
         return cliente;
     }
 
@@ -57,7 +61,7 @@ public class Reserva {
         this.cliente = cliente;
     }
 
-    public Vaga getVaga() {
+    public br.com.estacionamento.model.Vaga getVaga() {
         return vaga;
     }
 

@@ -1,5 +1,8 @@
 package br.com.estacionamento.model;
 
+import br.com.estacionamento.model.Pagamento;
+import br.com.estacionamento.model.Veiculo;
+
 import java.time.LocalDateTime;
 
 public class RegistroMovimentacao {
@@ -7,15 +10,15 @@ public class RegistroMovimentacao {
     private int idRegistro;
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
-    private Veiculo veiculo;
-    private Pagamento pagamento;
+    private br.com.estacionamento.model.Veiculo veiculo;
+    private br.com.estacionamento.model.Pagamento pagamento;
 
-    public void registrarEntrada(Veiculo veiculo) {
+    public void registrarEntrada(br.com.estacionamento.model.Veiculo veiculo) {
         this.veiculo = veiculo;
         this.dataHoraEntrada = LocalDateTime.now();
     }
 
-    public void registrarSaida(Veiculo veiculo) {
+    public void registrarSaida(br.com.estacionamento.model.Veiculo veiculo) {
         this.veiculo = veiculo;
         this.dataHoraSaida = LocalDateTime.now();
     }
@@ -44,7 +47,7 @@ public class RegistroMovimentacao {
         this.dataHoraSaida = dataHoraSaida;
     }
 
-    public Veiculo getVeiculo() {
+    public br.com.estacionamento.model.Veiculo getVeiculo() {
         return veiculo;
     }
 
@@ -52,7 +55,7 @@ public class RegistroMovimentacao {
         this.veiculo = veiculo;
     }
 
-    public Pagamento getPagamento() {
+    public br.com.estacionamento.model.Pagamento getPagamento() {
         return pagamento;
     }
 

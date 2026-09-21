@@ -2,7 +2,6 @@ package br.com.estacionamento.service;
 
 import br.com.estacionamento.interfaces.ICalculoTarifa;
 import br.com.estacionamento.interfaces.ITabelaPreco;
-import br.com.estacionamento.model.Veiculo;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -14,8 +13,8 @@ public class Calculo implements ICalculoTarifa {
         return Duration.between(dataHoraEntrada, dataHoraSaida).toMinutes();
     }
 
-
-    public double calcularValor( ITabelaPreco tabelaPreco, long tempoPermanencia) {
-        return tabelaPreco.consultarValorBase((int) tempoPermanencia);
+    @Override
+    public double calcularValor(ITabelaPreco tabelaPreco, long tempoPermanencia, String tipoVeiculo) {
+        return tabelaPreco.consultarValorBase((int) tempoPermanencia, tipoVeiculo);
     }
 }

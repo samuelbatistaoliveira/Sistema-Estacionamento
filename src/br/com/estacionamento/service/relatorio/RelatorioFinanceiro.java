@@ -12,7 +12,6 @@ public class RelatorioFinanceiro {
     public void gerar(LocalDateTime inicio, LocalDateTime fim) {
         this.periodoInicio = inicio;
         this.periodoFim = fim;
-        // TODO: consultar pagamentos do período (via IPagamentoRepositorio) e calcular totalRecebido/quantidadeTransacoes
     }
 
     public LocalDateTime getPeriodoInicio() {
