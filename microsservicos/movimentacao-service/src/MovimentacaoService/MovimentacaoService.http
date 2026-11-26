@@ -1,0 +1,19 @@
+@base = http://localhost:8084
+
+### Entrada (a câmera leu a placa)
+POST {{base}}/movimentacoes/entrada
+Content-Type: application/json
+
+{ "placa": "ABC1D23" }
+
+### Saída (metodoPagamento só é exigido se houver valor a pagar)
+POST {{base}}/movimentacoes/saida
+Content-Type: application/json
+
+{ "placa": "ABC1D23", "metodoPagamento": "PIX" }
+
+### Veículos no pátio agora
+GET {{base}}/movimentacoes?status=ABERTA
+
+### Buscar movimentação
+GET {{base}}/movimentacoes/1
