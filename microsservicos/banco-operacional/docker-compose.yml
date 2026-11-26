@@ -1,0 +1,18 @@
+# Sobe o Banco Operacional (PostgreSQL) usado por reservas-service e movimentacao-service.
+# Uso: docker compose up -d   (a partir desta pasta)
+services:
+  banco-operacional:
+    image: postgres:17
+    container_name: banco-operacional
+    environment:
+      POSTGRES_DB: operacional_db
+      POSTGRES_USER: ${DB_USER:-operacional}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-operacional}
+    ports:
+      - "5433:5432"   # 5433 para não colidir com um Postgres local
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - dados-operacional:/var/lib/postgresql/data
+
+volumes:
+  dados-operacional:

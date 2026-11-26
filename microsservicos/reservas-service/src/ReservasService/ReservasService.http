@@ -1,0 +1,28 @@
+@base = http://localhost:8083
+
+### Criar reserva (fica PENDENTE até o pagamento)
+POST {{base}}/reservas
+Content-Type: application/json
+
+{
+  "clienteId": 1,
+  "veiculoId": 1,
+  "vagaId": 1,
+  "dataInicio": "2026-12-01T14:00:00-03:00",
+  "dataFim": "2026-12-01T17:00:00-03:00"
+}
+
+### Listar reservas (opcional: ?clienteId=1)
+GET {{base}}/reservas
+
+### Buscar reserva
+GET {{base}}/reservas/1
+
+### Confirmar (paga no pagamentos-service)
+PUT {{base}}/reservas/1/confirmar
+Content-Type: application/json
+
+{ "metodoPagamento": "PIX" }
+
+### Cancelar
+PUT {{base}}/reservas/1/cancelar
