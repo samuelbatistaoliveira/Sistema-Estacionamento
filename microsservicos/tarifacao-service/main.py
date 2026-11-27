@@ -1,14 +1,10 @@
-
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel, Field
+from sqlalchemy import text
+from sqlalchemy.orm import Session
+from database import get_db
 
 app = FastAPI(title="Microsserviço de Tarifação")
-
-# Tarifas provisórias por hora iniciada
-TARIFAS = {
-    "carro": 5.00,
-    "moto": 3.00
-}
 
 
 class CalculoTarifa(BaseModel):
@@ -18,30 +14,51 @@ class CalculoTarifa(BaseModel):
 
 @app.get("/")
 def inicio():
-    return {"mensagem": "Microsserviço de Tarifação funcionando!"}
+    return {
+        "mensagem": "Microsserviço de Tarifação funcionando!"
+    }
 
 
 @app.get("/tarifas")
-def listar_tarifas():
-    return TARIFAS
+def listar_tarifas(db: Session = Depends(get_db)):
+    resultado = db.execute(
+        text("SELECT tipo_veiculo, valor_hora FROM tarifas")
+    ).mappings().all()
+
+    return {
+        tarifa["tipo_veiculo"]: float(tarifa["valor_hora"])
+        for tarifa in resultado
+    }
 
 
 @app.post("/tarifas/calcular")
-def calcular_tarifa(dados: CalculoTarifa):
+def calcular_tarifa(
+    dados: CalculoTarifa,
+    db: Session = Depends(get_db)
+):
     tipo = dados.tipo_veiculo.lower()
 
-    if tipo not in TARIFAS:
+    tarifa = db.execute(
+        text("""
+            SELECT valor_hora
+            FROM tarifas
+            WHERE tipo_veiculo = :tipo
+        """),
+        {"tipo": tipo}
+    ).scalar_one_or_none()
+
+    if tarifa is None:
         raise HTTPException(
             status_code=400,
             detail="Tipo de veículo inválido"
         )
 
     horas = (dados.minutos + 59) // 60
-    valor_total = horas * TARIFAS[tipo]
+    valor_total = horas * tarifa
 
     return {
         "tipo_veiculo": tipo,
         "minutos": dados.minutos,
         "horas_cobradas": horas,
-        "valor_total": round(valor_total, 2)
+        "valor_total": float(round(valor_total, 2))
     }
